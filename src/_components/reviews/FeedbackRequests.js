@@ -71,18 +71,6 @@ const GridView = () => {
         ),
         editable: 'never'
       },
-      {
-        title: 'Status',
-        field: 'fb_status',
-        lookup: {
-          'Not Approved': 'Not Approved',
-          'Approved': 'Approved',
-          'Rejected': 'Rejected'
-        },
-        cellStyle: { width: '100%' },
-        emptyValue: 'Not Approved',
-        initialEditValue: 'Not Approved'
-      }
     ],
     data: [],
     options: {
@@ -123,34 +111,6 @@ const GridView = () => {
       columns={state.columns}
       data={state.data}
       options={state.options}
-      editable={{
-        onRowUpdate: (newData, oldData) => {
-          return UpdateFeedback(user._id, newData)
-            .then(d => {
-              if (oldData && d) {
-                setState(prevState => {
-                  const data = [...prevState.data];
-                  data[data.indexOf(oldData)] = newData;
-                  return { ...prevState, data };
-                });
-                enqueueSnackbar(`Successfully updated feedback!`, {
-                  variant: 'success'
-                });
-              } else {
-                throw new Error('error');
-              }
-            })
-            .catch(err => {
-              console.error(err);
-              enqueueSnackbar(
-                `Network error occured while providing feedback!`,
-                {
-                  variant: 'error'
-                }
-              );
-            });
-        }
-      }}
     />
   );
 };

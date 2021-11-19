@@ -17,7 +17,7 @@ export const MenuItems = ({ role }) => {
   menus.push(
     <ListItemLink
       key='Review'
-      primary='Reveiw'
+      primary='Review'
       to={role === 'admin' ? '/review' : '/'}
       icon={<RateReview />}
     />
