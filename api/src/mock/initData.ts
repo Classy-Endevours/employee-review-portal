@@ -20,8 +20,8 @@ export const initData = () => {
   });
   const p3 = DB.Models.Employee.create({
     _id: new Types.ObjectId(),
-    name: 'Karthik kn',
-    username: 'karthik',
+    name: 'Tony stark',
+    username: 'tony',
     password: 'secret'
   });
   const p4 = DB.Models.Employee.create({
