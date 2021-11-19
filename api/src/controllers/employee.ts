@@ -13,6 +13,7 @@ export class EmployeeController {
         password: "secret",
         ...req.body,
       });
+      await emp.generateAuthToken();
       res.json(emp);
     } catch (error) {
       res.status(500);

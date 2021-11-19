@@ -11,7 +11,7 @@ export const authenticate = () => {
     const token = req.header('Authorization').replace('Bearer ', '');
     const data: any = jwt.verify(token, process.env.JWT_KEY || config.secret);
     console.log(data._id);
-    DB.Models.Employee.findOne({ _id: data._id, tokens: token })
+    DB.Models.Employee.findOne({ _id: data._id })
       .then(user => {
         if (!user) throw new Error('Authentication failure!');
         next();

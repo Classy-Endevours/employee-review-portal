@@ -211,7 +211,7 @@ function Dashboard() {
 export default function App() {
   const theme = createMuiTheme({
     palette: {
-      type: 'dark',
+      type: 'light',
       primary: blue,
       secondary: {
         main: orange[700]
